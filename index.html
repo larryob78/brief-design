@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World-Class Brief Intake Tool</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <aside class="brand-panel">
+      <div class="brand">
+        <span class="brand-mark">✦</span>
+        <div>
+          <h1>Creative Intelligence</h1>
+          <p>World-Class Brief Intake</p>
+        </div>
+      </div>
+      <section class="login" id="loginView">
+        <h2>Secure Client Access</h2>
+        <p class="muted">Sign in with your agency-issued workspace code to unlock your personalized briefing room.</p>
+        <form id="loginForm">
+          <label>Email
+            <input type="email" id="loginEmail" required placeholder="you@brand.com" autocomplete="email" />
+          </label>
+          <label>Workspace Code
+            <input type="password" id="loginWorkspace" required placeholder="Workspace code" autocomplete="current-password" />
+          </label>
+          <button type="submit" class="primary">Enter workspace</button>
+        </form>
+        <p class="security-note">All data is encrypted at rest in your browser. Sign out to clear the device cache.</p>
+      </section>
+      <section class="workspace" id="workspaceInfo" hidden>
+        <div class="workspace-meta">
+          <h2 id="workspaceTitle"></h2>
+          <p class="muted" id="workspaceSubtitle"></p>
+        </div>
+        <button id="signOut" class="link">Sign out</button>
+        <div class="progress-block">
+          <p class="muted">Completion</p>
+          <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          <p class="progress-label" id="progressLabel">0% complete</p>
+        </div>
+        <div class="export-panel">
+          <h3>Export &amp; Share</h3>
+          <button data-export="print" class="secondary">Print / Save PDF</button>
+          <button data-export="doc" class="secondary">Export Word / Docs</button>
+          <button data-export="notion" class="secondary">Export Notion Markdown</button>
+          <button data-export="share" class="secondary">Generate Share Link</button>
+          <p class="muted">Exports capture the live preview format designed to drop straight into client presentations, Google Docs, or Notion.</p>
+        </div>
+      </section>
+    </aside>
+    <main class="workspace-body" id="workspaceView" hidden>
+      <header class="workspace-header">
+        <div>
+          <h2>Creative Brief Builder</h2>
+          <p class="muted">Complete each section to craft a crystal-clear, agency-ready brief.</p>
+        </div>
+        <div class="autosave" id="autosaveStatus">Autosaved</div>
+      </header>
+      <section class="workspace-content">
+        <div class="form-panel">
+          <div id="steps"></div>
+          <form id="briefForm"></form>
+        </div>
+        <aside class="preview-panel">
+          <div class="preview-header">
+            <h3>Live Brief Preview</h3>
+            <p class="muted">Updated instantly as you write. Perfect for stakeholder reviews.</p>
+          </div>
+          <article id="briefPreview" class="preview"></article>
+        </aside>
+      </section>
+    </main>
+    <div id="shareModal" class="modal" hidden>
+      <div class="modal-content">
+        <button class="modal-close" id="closeShare">×</button>
+        <h3>Secure share link</h3>
+        <p class="muted">Copy the link below to invite collaborators to review and comment.</p>
+        <div class="share-link">
+          <input type="text" id="shareLink" readonly />
+          <button id="copyShare" class="primary">Copy</button>
+        </div>
+        <p class="muted tiny">Links expire after 7 days or once revoked from the workspace settings.</p>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
