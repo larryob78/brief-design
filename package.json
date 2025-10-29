@@ -1,0 +1,16 @@
+{
+  "name": "brief-design",
+  "version": "1.0.0",
+  "description": "World-class creative brief intake tool",
+  "scripts": {
+    "start": "python3 -m http.server 8080"
+  },
+  "keywords": [
+    "creative-brief",
+    "intake",
+    "agency",
+    "marketing"
+  ],
+  "author": "",
+  "license": "MIT"
+}
